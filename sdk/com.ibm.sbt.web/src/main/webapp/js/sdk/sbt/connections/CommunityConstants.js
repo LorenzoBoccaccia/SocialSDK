@@ -182,19 +182,6 @@ define([ "../lang", "./ConnectionsConstants" ], function(lang,conn) {
          * @for sbt.connections.CommunityService
          */
         AtomCommunitiesAll : "/${communities}/service/atom/communities/all",
-
-        /**
-         * A feed of communities of which the authenticated user is a member.
-         * 
-         * Get the My Communities feed to see a list of the communities to which the authenticated user is a member or pass in parameters to search for a subset of those communities that match a specific criteria.
-         * 
-         * Supports: asc, email, ps, search, since, sortField, tag, userid
-         * 
-         * @property AtomCommunitiesMy
-         * @type String
-         * @for sbt.connections.CommunityService
-         */
-        AtomCommunitiesMy : "/${communities}/service/atom/communities/my",
         
         /**
          * A feed of invitations.
@@ -316,30 +303,56 @@ define([ "../lang", "./ConnectionsConstants" ], function(lang,conn) {
          */
         AtomCommunityEventComments : "/${communities}/calendar/atom/calendar/event/comment",
         
-        /**
-         * Obtain a full representation of the invitations as an Atom entry document.
-         * 
-         * @property AtomCommunityInvites
-         * @type String
-         * @for sbt.connections.CommunityService
-         */
+
         AtomCommunityInvites : "/${communities}/service/atom/community/invites",
         
-        /**
-         * File Proxy URL for update community logo
-         * @property AtomUpdateCommunityLogo
-         * @type String
-         * @for sbt.connections.CommunityService
-         */
-        AtomUpdateCommunityLogo : "/${files}/{endpointName}/connections/UpdateCommunityLogo/{fileName}",
-        
-        /**
-         * File Proxy URL for uploading a community file
-         * @property AtomUploadCommunityFile
-         * @type String
-         * @for sbt.connections.CommunityService
-         */
-        AtomUploadCommunityFile : "/${files}/{endpointName}/connections/UploadCommunityFile/{communityUuid}"
+
+        urls : {
+            /**
+             * File Proxy URL for uploading a community file
+             * @property AtomUploadCommunityFile
+             * @type String
+             * @for sbt.connections.CommunityService
+             */
+        	AtomUploadCommunityFile : {
+    			'3.0.0': '/${files}/{endpointName}/connections/UploadCommunityFile/{communityUuid}'
+    		},
+            /**
+             * File Proxy URL for update community logo
+             * @property AtomUpdateCommunityLogo
+             * @type String
+             * @for sbt.connections.CommunityService
+             */
+    		AtomUpdateCommunityLogo : {
+    			'3.0.0': '/${files}/{endpointName}/connections/UpdateCommunityLogo/{fileName}'
+    		},
+            /**
+             * Obtain a full representation of the invitations as an Atom entry document.
+             * 
+             * @property AtomCommunityInvites
+             * @type String
+             * @for sbt.connections.CommunityService
+             */
+    		AtomCommunityInvites : {
+    			'3.0.0': '/${communities}/service/atom/community/invites',
+    			'4.5.0': '/${communities}/service/atom/{authentication}/communities/invites'
+    		},
+            /**
+             * A feed of communities of which the authenticated user is a member.
+             * 
+             * Get the My Communities feed to see a list of the communities to which the authenticated user is a member or pass in parameters to search for a subset of those communities that match a specific criteria.
+             * 
+             * Supports: asc, email, ps, search, since, sortField, tag, userid
+             * 
+             * @property AtomCommunitiesMy
+             * @type String
+             * @for sbt.connections.CommunityService
+             */
+            AtomCommunitiesMy : {
+            	'3.0.0': '/${communities}/service/atom/communities/my',
+            	'4.5.0': '/${communities}/service/atom/{authentication}/communities/my'
+            }
+        }
         
     });
 });
