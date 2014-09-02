@@ -2928,6 +2928,7 @@ public class FileService extends ConnectionsService {
                 uri = entry.getAsString(FileEntryXPath.DeleteModeration);
             }
         }
+        
         if (StringUtil.isEmpty(uri)) {
             return null;
         }
